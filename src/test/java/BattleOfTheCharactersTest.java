@@ -4,53 +4,53 @@ import org.junit.jupiter.api.Test;
 public class BattleOfTheCharactersTest {
 
     @Test
-    void should_return_BBB_when_given_AAA_and_BBB() {
+    void should_return_B_when_given_A_and_B() {
+        //  Given
+        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
+        String string1 = "A";
+        String string2 = "B";
+
+        //  When
+        String result = battleOfTheCharacters.battle(string1,string2);
+
+        //  Then
+        Assertions.assertEquals("B",result);
+    }
+
+    @Test
+    void should_return_AA_when_given_A_and_AA() {
+        //  Given
+        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
+        String string1 = "A";
+        String string2 = "AA";
+
+        //  When
+        String result = battleOfTheCharacters.battle(string1,string2);
+
+        //  Then
+        Assertions.assertEquals("AA",result);
+    }
+
+    @Test
+    void should_return_AB_when_given_AA_and_AB() {
+        //  Given
+        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
+        String string1 = "AA";
+        String string2 = "AB";
+
+        //  When
+        String result = battleOfTheCharacters.battle(string1,string2);
+
+        //  Then
+        Assertions.assertEquals("AB",result);
+    }
+
+    @Test
+    void should_return_Tie_when_given_AAA_and_AB() {
         //  Given
         BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
         String string1 = "AAA";
-        String string2 = "BBB";
-
-        //  When
-        String result = battleOfTheCharacters.battle(string1,string2);
-
-        //  Then
-        Assertions.assertEquals("BBB",result);
-    }
-
-    @Test
-    void should_return_CCC_when_given_CCC_and_BBB() {
-        //  Given
-        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
-        String string1 = "BBB";
-        String string2 = "CCC";
-
-        //  When
-        String result = battleOfTheCharacters.battle(string1,string2);
-
-        //  Then
-        Assertions.assertEquals("CCC",result);
-    }
-
-    @Test
-    void should_return_DDD_when_given_CCC_and_DDD() {
-        //  Given
-        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
-        String string1 = "CCC";
-        String string2 = "DDD";
-
-        //  When
-        String result = battleOfTheCharacters.battle(string1,string2);
-
-        //  Then
-        Assertions.assertEquals("DDD",result);
-    }
-
-    @Test
-    void should_return_Tie_when_given_AAA_and_AAA() {
-        //  Given
-        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
-        String string1 = "AAA";
-        String string2 = "AAA";
+        String string2 = "AB";
 
         //  When
         String result = battleOfTheCharacters.battle(string1,string2);
