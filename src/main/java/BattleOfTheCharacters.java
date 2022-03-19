@@ -1,7 +1,7 @@
 public class BattleOfTheCharacters {
 
     private char[] characters = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N'
-                               ,'O','P','Q','R','S','T','U','V','W','X','W','Z','Y','Z'};
+                               ,'O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 
     public String battle(String string1, String string2) {
         int totalPowerStr1 = totalPower(string1);
