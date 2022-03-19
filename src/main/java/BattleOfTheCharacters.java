@@ -4,13 +4,13 @@ public class BattleOfTheCharacters {
                                ,'O','P','Q','R','S','T','U','V','W','X','W','Z','Y','Z'};
 
     public String battle(String string1, String string2) {
-        int strPower1 = totalPower(string1);
-        int strPower2 = totalPower(string2);
+        int totalPowerStr1 = totalPower(string1);
+        int totalPowerStr2 = totalPower(string2);
         String result = "";
 
-        if (strPower1 > strPower2){
+        if (isFirstGroupTotalPowerBigger(totalPowerStr1,totalPowerStr2)){
             result = string1;
-        }else if ( strPower2 > strPower1){
+        }else if (isSecondGroupTotalPowerBigger(totalPowerStr2,totalPowerStr1)){
             result = string2;
         }else{
             result = "Tie!";
@@ -18,19 +18,33 @@ public class BattleOfTheCharacters {
         return result;
     }
 
-    private int totalPower(String string1) {
+    private boolean isFirstGroupTotalPowerBigger(int totalPowerStr1, int totalPowerStr2) {
+        return totalPowerStr1 > totalPowerStr2;
+    }
+
+    private boolean isSecondGroupTotalPowerBigger(int totalPowerStr2, int totalPowerStr1) {
+        return totalPowerStr2 > totalPowerStr1;
+    }
+
+    private int totalPower(String str) {
         int totalPower = 0;
-        for (int power = 1; power <= characters.length; power++) {
-            for (int index = 0; index < string1.length(); index++) {
-                if (isTheStringCharsEqualToTheArrayChars(string1.charAt(index), characters[power - 1])) {
-                    totalPower += power;
-                }
-            }
+        for (int index = 0; index < str.length(); index++) {
+            totalPower += getPowerOfEachChar(str, index);
         }
         return totalPower;
     }
 
-    private boolean isTheStringCharsEqualToTheArrayChars(char strChar, char expectCharacters) {
+    private int getPowerOfEachChar(String str, int index) {
+        int result = 0;
+        for (int power = 1; power <= characters.length; power++) {
+            if (isTheStringConsistOfThisChar(str.charAt(index), characters[power - 1])) {
+                result = power;
+            }
+        }
+        return result;
+    }
+
+    private boolean isTheStringConsistOfThisChar(char strChar, char expectCharacters) {
         return strChar == expectCharacters;
     }
 }

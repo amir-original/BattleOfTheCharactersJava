@@ -121,7 +121,6 @@ public class BattleOfTheCharactersTest {
         BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
         String string1 = "AAA";
         String string2 = "Z";
-
         //  When
         String result = battleOfTheCharacters.battle(string1,string2);
 
@@ -141,6 +140,20 @@ public class BattleOfTheCharactersTest {
 
         //  Then
         Assertions.assertEquals("FOUR",result);
+    }
+
+    @Test
+    void should_return_SIX_when_given_SIX_and_FIVE() {
+        //  Given
+        BattleOfTheCharacters battleOfTheCharacters = new BattleOfTheCharacters();
+        String string1 = "SIX";
+        String string2 = "FIVE";
+        String[] strings = {string1,string2};
+        //  When
+        String result = battleOfTheCharacters.battle(string1,string2);
+
+        //  Then
+        Assertions.assertEquals("SIX",result);
     }
 
 
